@@ -1,31 +1,81 @@
-const yesBtn = document.querySelector(".yes-btn");
-const noBtn = document.querySelector(".no-btn");
-const question = document.querySelector(".question");
-const gif = document.querySelector(".gif");
+/* style.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    color: #333;
+}
 
-// Change text and gif when the Yes button is clicked
-yesBtn.addEventListener("click", () => {
-    question.innerHTML = "Being with you is my biggest blessing. I love you.";
-    gif.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGNhdXh1b252b2F2b2U4cHRlNGkwMDZsajllaGF1cDJyb2p4NXl2YiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/G6N0pDDgDpLjUvNoyQ/giphy.gif";
+.wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
 
-    // Hide the No button
-    noBtn.style.display = "none";
-});
+.question {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
 
-// Make the No button move randomly on hover
-noBtn.addEventListener("mouseover", () => {
-    const wrapper = document.querySelector(".wrapper");
-    const wrapperRect = wrapper.getBoundingClientRect();
-    const noBtnRect = noBtn.getBoundingClientRect();
+.gif {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-    // Calculate max positions to ensure the button stays within the wrapper
-    const maxX = wrapperRect.width - noBtnRect.width;
-    const maxY = wrapperRect.height - noBtnRect.height;
+.btn-group {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
 
-    // Ensure randomX and randomY are within the wrapper bounds
-    const randomX = Math.min(Math.floor(Math.random() * maxX), maxX);
-    const randomY = Math.min(Math.floor(Math.random() * maxY), maxY);
+button {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
-    noBtn.style.left = randomX + "px";
-    noBtn.style.top = randomY + "px";
-});
+button:focus {
+    outline: none;
+}
+
+.yes-btn {
+    background-color: #4caf50;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.yes-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.no-btn {
+    position: absolute;
+    background-color: #ff4d4d;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.no-btn:hover {
+    background-color: #e43e3e;
+    transform: scale(1.05);
+}
