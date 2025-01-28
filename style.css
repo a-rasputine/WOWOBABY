@@ -70,3 +70,40 @@ button:hover {
     background-color: #45a049;
     transform: scale(1.05);
 }
+
+.flowers-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.flower {
+    font-size: 30px;
+    animation: floatUp 3s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
